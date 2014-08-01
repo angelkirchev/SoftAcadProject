@@ -1,12 +1,8 @@
 <?php session_start();
 
-		$_SESSION=array();		//session_destroy();
-						
-		header("location:register.php");
-	
-					
+$_SESSION = array();
+//session_destroy();
+
+header("location:register.php");
 ?>
 
-	
-	
-	

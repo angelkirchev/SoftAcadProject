@@ -1,9 +1,7 @@
 <?php session_start();
-	if(!(isset($_SESSION['status'])&& $_SESSION['unm']=="admin"))
-	{
-		header("location:../index.php");
-	}
-
+if (!(isset($_SESSION['status']) && $_SESSION['unm'] == "admin")) {
+	header("location:../index.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -11,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 		<?php
-			include("includes/head.inc.php");
+		include ("includes/head.inc.php");
 		?>
 </head>
 <body>
@@ -19,7 +17,7 @@
 <div id="header">
 	<div id="menu">
 		<?php
-			include("includes/menu.inc.php");
+		include ("includes/menu.inc.php");
 		?>
 	</div>
 </div>
@@ -47,7 +45,7 @@
 <!-- start footer -->
 <div id="footer">
 			<?php
-				include("includes/footer.inc.php");
+			include ("includes/footer.inc.php");
 			?>
 </div>
 <!-- end footer -->

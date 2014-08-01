@@ -1,20 +1,18 @@
 <?php session_start();
 
+$link = mysql_connect("localhost", "root", "") or die("Can't Connect...");
+mysql_select_db("shop", $link) or die("Can't Connect to Database...");
+$cat = $_GET['cat_nm'];
 
-	$link=mysql_connect("localhost","root","")or die("Can't Connect...");
-	mysql_select_db("shop",$link) or die("Can't Connect to Database...");
-	$cat=$_GET['cat_nm'];
-	
-	$q = "select * from subcat where parent_id = ".$_GET['cat'];
-	$res = mysql_query($q,$link) or die("Can't Execute Query..");
-	
-	$row1 = mysql_fetch_assoc($res);
-	
-	if($_GET['catnm']==$row1['subcat_nm'])
-	{
-		header("location:booklist.php?subcatid=".$row1['subcat_id']."&subcatnm=".$row1["subcat_nm"]);
-		
-	}
+$q = "select * from subcat where parent_id = " . $_GET['cat'];
+$res = mysql_query($q, $link) or die("Can't Execute Query..");
+
+$row1 = mysql_fetch_assoc($res);
+
+if ($_GET['catnm'] == $row1['subcat_nm']) {
+	header("location:booklist.php?subcatid=" . $row1['subcat_id'] . "&subcatnm=" . $row1["subcat_nm"]);
+
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -22,7 +20,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 		<?php
-			include("includes/head.inc.php");
+		include ("includes/head.inc.php");
 		?>
 </head>
 
@@ -31,7 +29,7 @@
 				<div id="header">
 					<div id="menu">
 						<?php
-							include("includes/menu.inc.php");
+						include ("includes/menu.inc.php");
 						?>
 					</div>
 				</div>
@@ -45,7 +43,7 @@
 					<!-- start content -->
 					<div id="content">
 						<div class="post">
-							<h1 class="title"><?php echo $_GET['catnm'];?></h1>
+							<h1 class="title"><?php echo $_GET['catnm']; ?></h1>
 							<div class="entry">
 						
 								<?php
@@ -62,12 +60,12 @@
 						</div>
 						
 					</div>
-					<!-- end content -->
+				<!-- end content -->
 					
 					<!-- start sidebar -->
 					<div id="sidebar">
 							<?php
-								include("includes/search.inc.php");
+							include ("includes/search.inc.php");
 							?>
 					</div>
 					<!-- end sidebar -->
@@ -78,7 +76,7 @@
 			<!-- start footer -->
 				<div id="footer">
 							<?php
-								include("includes/footer.inc.php");
+							include ("includes/footer.inc.php");
 							?>
 				</div>
 			<!-- end footer -->
